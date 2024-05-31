@@ -1,0 +1,36 @@
+
+<div class="container mt-5 text-center">
+    <div class="card d-inline-block ">
+      <div class="card-body">
+        <h5 class="card-title text-center">Formulario de Búsqueda</h5>
+        <div class="row ">
+          <div class="col-md-12 ">
+            <div class="form-group">
+              <label for="tipoDocumento" class="form-label">Tipo de documento:</label>
+              <select id="tipoDocumento" class="form-control" [(ngModel)]="persona.tipoDocumento" (change)="validarCampos()">
+                <option value="" disabled selected>-- Seleccione --</option>
+                <option value="C">Cédula de ciudadanía</option>
+                <option value="P">Pasaporte</option>
+              </select>
+            </div>
+          </div>
+        </div>
+          <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="numeroIdentificacion" class="form-label">Número de documento:</label>
+              <input type="text" id="numeroIdentificacion" class="form-control" [(ngModel)]="persona.numeroIdentificacion" (keydown)="validarTecla($event)" (input)="validarCampos()" maxlength="11" />
+            </div>
+          </div>
+        </div>
+        
+        <div class="row text-center">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-primary" [disabled]="!persona.botonActivo" [routerLink]="['/resumen',persona.tipoDocumento,numIdent]"
+        
+            >Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
